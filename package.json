@@ -5,6 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "google:generate-auth-token": "dotenvx run -- tsx src/services/google/generateAuthToken.ts",
+    "google:read-calendar": "dotenvx run -- tsx src/services/google/readCalendar.ts",
+    "programmatic-api:infer": "dotenvx run -- tsx src/features/programmatic-api/infer.ts",
+    "programmatic-api:infer-all": "dotenvx run -- tsx src/features/programmatic-api/infer-all.ts",
+    "azure-ai:infer": "dotenvx run -- tsx src/llm-provider-inference/azure-ai.ts",
     "maas": "dotenvx run -- tsx src/maas.ts",
     "generate": "dotenvx run -- tsx src/index.ts",
     "daily": "dotenvx run -- tsx src/notion-daily.ts",
@@ -19,7 +24,10 @@
     "@slack/web-api": "^6.3.0",
     "dayjs": "^1.10.6",
     "dotenv": "16.4.5",
+    "google-auth-library": "^9.14.1",
+    "googleapis": "^144.0.0",
     "node-fetch": "^3.3.2",
+    "open": "^10.1.0",
     "openai": "^4.60.0",
     "papaparse": "^5.4.1",
     "tsx": "^4.19.1"

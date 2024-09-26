@@ -12,16 +12,6 @@ if (!dateNumber) {
   process.exit(1);
 }
 
-const DAYS: Record<string, number> = {
-  Monday: 1,
-  Tuesday: 2,
-  Wednesday: 3,
-  Thursday: 4,
-  Friday: 5,
-  Saturday: 6,
-  Sunday: 7,
-};
-
 main(parseInt(dateNumber));
 
 export default async function main(dateNumber: number) {
