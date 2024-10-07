@@ -14,7 +14,7 @@ export function readCalendar(start: dayjs.Dayjs, end: dayjs.Dayjs) {
 
   const calendar = google.calendar({ version: "v3", auth });
 
-  return new Promise((resolve, reject) => {
+  return new Promise<string[]>((resolve, reject) => {
     calendar.events.list(
       {
         calendarId: "primary",
@@ -37,7 +37,7 @@ export function readCalendar(start: dayjs.Dayjs, end: dayjs.Dayjs) {
               ) &&
               !skippedEvents.includes(event.summary || "")
           )
-          .map((event) => event.summary);
+          .map((event) => event.summary!);
         resolve(filteredEvents);
       }
     );

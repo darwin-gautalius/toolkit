@@ -8,14 +8,9 @@ import { printModel } from "../../helpers/printModel";
   const models = await client.models.list();
   const model = getModelByProviderAndName(
     models,
-    "AZURE_OPEN_AI",
-    "gpt-4-32k-0613"
+    "OPEN_AI",
+    "gpt-4o-mini-2024-07-18"
   )!;
-  // const model = getModelByProviderAndName(
-  //   models,
-  //   "AMAZON_BEDROCK",
-  //   "meta.llama3-8b-instruct-v1:0"
-  // )!;
   printModel(model);
   const response = await client.chat.completions.create({
     stream: true,
@@ -26,7 +21,13 @@ import { printModel } from "../../helpers/printModel";
         content: [
           {
             type: "text",
-            text: "What is bonsai?",
+            text: "explain the image to me",
+          },
+          {
+            type: "image_url",
+            image_url: {
+              url: "https://cdn.idntimes.com/content-images/community/2022/01/20220107-065619-329ae2b286ff7799fbbec7d4597d307a-2fe8bfd56abf5d4ca07e5cd5e3af3057.jpg",
+            },
           },
         ],
       },

@@ -19,7 +19,7 @@ import { printModel } from "../../helpers/printModel.js";
             content: [
               {
                 type: "text",
-                text: "You are a helpful assistant that translates English to Italian.",
+                text: "Answer the question shortly.",
               },
             ],
           },
@@ -28,7 +28,7 @@ import { printModel } from "../../helpers/printModel.js";
             content: [
               {
                 type: "text",
-                text: "Translate the following sentence from English to Italian: I love programming.",
+                text: "What is beak trimming?",
               },
             ],
           },

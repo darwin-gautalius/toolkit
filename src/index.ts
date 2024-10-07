@@ -44,16 +44,6 @@ function dayOfWeekToDate(dayOfWeek: string) {
   return dayjs().day(day).format("YYYY-MM-DD");
 }
 
-async function insertTasks(taskDate: string, tasks: string[]) {
-  for (const task of tasks) {
-    await createPage(databaseId, {
-      Name: title(task),
-      Tags: singleSelect(getTags(task)),
-      Date: date(taskDate),
-    });
-  }
-}
-
 function getTags(task: string) {
   task = task.toLowerCase();
   if (task.startsWith("review")) {

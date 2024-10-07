@@ -6,6 +6,20 @@ const weeklyDatabaseId = process.env.NOTION_WEEKLY_DATABASE_ID!;
 
 export const client = new Client({ auth: process.env.NOTION_TOKEN! });
 
+export async function insertTasks(
+  tasks: string[],
+  taskDate: string,
+  tag: string
+) {
+  for (const task of tasks) {
+    await createPage(databaseId, {
+      Name: title(task),
+      Tags: singleSelect(tag),
+      Date: date(taskDate),
+    });
+  }
+}
+
 export function updateTag(page_id: string, tag: string) {
   return updatePage(page_id, {
     Tags: singleSelect(tag),

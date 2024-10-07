@@ -4,12 +4,23 @@ import { printChatCompletionStream } from "../../helpers/printChatCompletionStre
 import { printModel } from "../../helpers/printModel";
 
 (async () => {
-  const client = getClient();
+  const client = getClient(process.env.LLM_LABS_DEPLOYED_API);
   const response = await client.chat.completions.create({
-    stream: true,
+    // stream: true,
     model: undefined as any,
-    messages: [{ role: "user", content: "Hello!" }],
+    messages: [
+      {
+        role: "user",
+        content: [
+          {
+            type: "text",
+            text: "What is EBT?",
+          },
+        ],
+      },
+    ],
   });
 
-  await printChatCompletionStream(response);
+  // await printChatCompletionStream(response);
+  console.log(JSON.stringify(response, null, 2));
 })();
